@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petopia</title>
+    <title>petopia</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="main-menu" class="modal" style="display:flex">
         <div class="modal-content">
-            <h2>🐾 Petopia</h2>
-            <p>Welcome to Petopia! Take care of your virtual pet.</p>
+            <h2>🐾 petopia</h2>
+            <p>Take care of your own virtual pet!</p>
             <div class="modal-buttons">
                 <button class="btn setup-btn" onclick="showCreatePet()">Create a Pet</button>
                 <button class="btn load-btn" onclick="showLoadPet()">Load a Pet</button>
@@ -30,8 +30,8 @@
                 <div class="species-grid" id="species-options"></div>
             </div>
             <div class="modal-buttons">
-                <button class="btn setup-btn" onclick="savePetSetup()">Start Game</button>
-                <button class="btn cancel-reset-btn" onclick="showMainMenu()">Back</button>
+                <button class="btn setup-btn" onclick="savePetSetup()">Begin</button>
+                <button class="btn cancel-reset-btn" onclick="showMainMenu()">Go back</button>
             </div>
         </div>
     </div>
@@ -40,10 +40,10 @@
         <div class="modal-content">
             <h2>Load Pet 🐾</h2>
             <p>Enter your save code below:</p>
-            <textarea id="load-code-input" class="save-code-input" placeholder="Paste your save code here..." rows="4"></textarea>
+            <textarea id="load-code-input" class="save-code-input" placeholder="Base64 string..." rows="4"></textarea>
             <div class="modal-buttons">
-                <button class="btn setup-btn" onclick="loadFromCode()">Load Game</button>
-                <button class="btn cancel-reset-btn" onclick="showMainMenu()">Back</button>
+                <button class="btn setup-btn" onclick="loadFromCode()">Import</button>
+                <button class="btn cancel-reset-btn" onclick="showMainMenu()">Go back</button>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@
         <div class="container" id="game-container" style="display:none">
             <div class="header">
                 <div class="header-left">
-                    <h1>🐾 Petopia</h1>
+                    <h1>🐾 petopia</h1>
                 </div>
                 <div class="header-right">
                     <div class="coins"><span id="coins">100</span> 🪙</div>
@@ -128,7 +128,6 @@
                     <div class="save-code-text" id="current-save-code"></div>
                     <button class="btn copy-btn" onclick="copySaveCode()">Copy</button>
                 </div>
-                <p class="save-code-help">Save this code to load your pet on another device or browser!</p>
             </div>
         </div>
     </div>
