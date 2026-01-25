@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petopia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main-menu" class="modal" style="display:flex">
+        <div class="modal-content">
+            <h2>🐾 Petopia</h2>
+            <p>Welcome to Petopia! Take care of your virtual pet.</p>
+            <div class="modal-buttons">
+                <button class="btn setup-btn" onclick="showCreatePet()">Create a Pet</button>
+                <button class="btn load-btn" onclick="showLoadPet()">Load a Pet</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="setup-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <h2>Create Your Pet 🐾</h2>
+            <div>
+                <h3>Pet Name</h3>
+                <input type="text" id="pet-name-input" class="input" placeholder="Enter pet name" maxlength="20" value="Fluffy">
+            </div>
+            <div>
+                <h3>Choose Species</h3>
+                <div class="species-grid" id="species-options"></div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn setup-btn" onclick="savePetSetup()">Start Game</button>
+                <button class="btn cancel-reset-btn" onclick="showMainMenu()">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="load-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <h2>Load Pet 🐾</h2>
+            <p>Enter your save code below:</p>
+            <textarea id="load-code-input" class="save-code-input" placeholder="Paste your save code here..." rows="4"></textarea>
+            <div class="modal-buttons">
+                <button class="btn setup-btn" onclick="loadFromCode()">Load Game</button>
+                <button class="btn cancel-reset-btn" onclick="showMainMenu()">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <span class="close" onclick="closeGame()">×</span>
+            <h3 id="game-title"></h3>
+            <div id="game-area"></div>
+            <div id="game-info" class="game-stats"></div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <div class="game-wrapper">
+        <div class="container" id="game-container" style="display:none">
+            <div class="header">
+                <div class="header-left">
+                    <h1>🐾 Petopia</h1>
+                </div>
+                <div class="header-right">
+                    <div class="coins"><span id="coins">100</span> 🪙</div>
+                </div>
+            </div>
+            
+            <div class="pet-area">
+                <div class="pet-display">
+                    <div id="pet">🐱</div>
+                    <div id="pet-clothing"></div>
+                    <div class="pet-name" id="display-pet-name">Fluffy</div>
+                </div>
+                
+                <div class="pet-info">
+                    <div id="status">Feeling good</div>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-name">🍎 Hunger</div>
+                            <div class="bar"><div id="hunger-bar" class="fill" style="width:70%;background:#f59e0b"></div></div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-name">😊 Happiness</div>
+                            <div class="bar"><div id="happiness-bar" class="fill" style="width:85%;background:#10b981"></div></div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-name">❤️ Health</div>
+                            <div class="bar"><div id="health-bar" class="fill" style="width:90%;background:#ef4444"></div></div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-name">⚡ Energy</div>
+                            <div class="bar"><div id="energy-bar" class="fill" style="width:60%;background:#3b82f6"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="shop">
+                <h2 class="section-title">🛒 Shop</h2>
+                <div class="shop-items" id="shop-items"></div>
+            </div>
+            
+            <div class="games">
+                <h2 class="section-title">🎮 Games</h2>
+                <div class="game-cards">
+                    <div class="game" onclick="startGame('fishing')">
+                        <div class="game-emoji">🎣</div>
+                        <div class="game-name">Fishing</div>
+                        <div class="game-desc">Catch fish to earn coins</div>
+                    </div>
+                    <div class="game" onclick="startGame('puzzle')">
+                        <div class="game-emoji">🧩</div>
+                        <div class="game-name">Puzzle</div>
+                        <div class="game-desc">Solve the puzzle to earn coins</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="save-code-section">
+                <h2 class="section-title">💾 Save Code</h2>
+                <div class="save-code-display">
+                    <div class="save-code-text" id="current-save-code"></div>
+                    <button class="btn copy-btn" onclick="copySaveCode()">Copy</button>
+                </div>
+                <p class="save-code-help">Save this code to load your pet on another device or browser!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
